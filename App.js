@@ -6,6 +6,7 @@
 'use strict';
 import React, { Component } from 'react';
 import QRCode from 'react-native-qrcode'; 
+import Swiper from 'react-native-swiper';
 import {
     Platform,
     StyleSheet,
@@ -28,18 +29,23 @@ export default class App extends Component<{}> {
     };
     render() {
         return (
-            <View style={styles.container}>
-                <TextInput
-                style={styles.input}
-                onChangeText={(text) => this.setState({text: text})}
-                value={this.state.text}
-                />
-                <QRCode
-                value={this.state.text}
-                size={200}
-                bgColor='purple'
-                fgColor='white'/>
-            </View>
+            <Swiper>
+                <View style={styles.container}>
+                    <QRCode
+                        value={this.state.text} 
+                        size={200}
+                        bgColor='black'
+                    />
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={(text) => this.setState({text: text})}
+                        value={this.state.text}
+                    />
+                </View>
+                
+                <View> 
+                </View> 
+            </Swiper> 
            );
     }
 }
@@ -54,9 +60,10 @@ const styles = StyleSheet.create({
 
     input: {
         height: 40,
+        width: 200,
         borderColor: 'gray',
         borderWidth: 1,
-        margin: 10,
+        margin: 20,
         borderRadius: 5,
         padding: 5,
     },
