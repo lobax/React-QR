@@ -6,6 +6,7 @@
 'use strict';
 import React, { Component } from 'react';
 import QRCode from 'react-native-qrcode'; 
+import QRCodeScanner from 'react-native-qrcode-scanner';
 import Swiper from 'react-native-swiper';
 import {
     Platform,
@@ -44,6 +45,9 @@ export default class App extends Component<{}> {
                 </View>
                 
                 <View> 
+                    <QRCodeScanner
+                        
+                    />
                 </View> 
             </Swiper> 
            );
