@@ -13,6 +13,7 @@ import {
     StyleSheet,
     Text,
     TextInput,
+    Linking,
     View
 } from 'react-native';
 
@@ -28,6 +29,13 @@ export default class App extends Component<{}> {
     state = { 
         text: 'http://google.com',
     };
+
+    onSuccess(e) {
+        Linking
+            .openURL(e.data)
+            .catch(err => console.error('An error occured', err));
+    }
+
     render() {
         return (
             <Swiper>
@@ -46,7 +54,7 @@ export default class App extends Component<{}> {
                 
                 <View> 
                     <QRCodeScanner
-                        
+                        onRead={this.onSuccess.bind(this)}
                     />
                 </View> 
             </Swiper> 
